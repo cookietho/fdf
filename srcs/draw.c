@@ -6,7 +6,7 @@
 /*   By: minakim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/05 18:06:07 by minakim           #+#    #+#             */
-/*   Updated: 2018/06/12 16:56:56 by minakim          ###   ########.fr       */
+/*   Updated: 2018/06/13 13:08:31 by minakim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void	plot_map(t_fdf *m)
 		{
 			m->p_gap = (m->win_min - 450) / (m->map_max + m->zoom);
 			k->x0 = m->map[x][y].x - (m->map_x / 2);
-			k->y0 = (m->map[x][y].y - (m->map_y / 2)) * cos(m->rx) + (m->map[x][y].z * m->key9) * sin(m->rx);
-			k->z0 = (m->map[x][y].z * m->key9) * cos(m->rx) - (m->map[x][y].y - (m->map_y / 2)) * sin(m->rx);
+			k->y0 = (m->map[x][y].y - (m->map_y / 2)) * cos(m->rx) + (m->map[x][y].z * m->z_change) * sin(m->rx);
+			k->z0 = (m->map[x][y].z * m->z_change) * cos(m->rx) - (m->map[x][y].y - (m->map_y / 2)) * sin(m->rx);
 			k->x1 = k->x0 * cos(m->ry) - k->z0 * sin(m->ry);
 			k->y1 = k->y0;
 			k->z1 = k->z0 * cos(m->ry) + k->x0 * sin(m->ry);

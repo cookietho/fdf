@@ -6,7 +6,7 @@
 /*   By: minakim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 21:11:48 by minakim           #+#    #+#             */
-/*   Updated: 2018/06/11 20:51:58 by minakim          ###   ########.fr       */
+/*   Updated: 2018/06/13 13:07:46 by minakim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,7 @@ typedef struct	s_fdf
 	double		rx;
 	double		ry;
 	double		rz;
-//	int			key0;
-//	int			key1;
-//	int			key2;
-//	int			key3;
-	int			key4;
-//	int			key5;
-//	int			key6;
-//	int			key7;
-//	int			key8;
-	double		key9;
+	double		z_change;
 }				t_fdf;
 //	main.c
 int				main(int ac, char **av);
@@ -92,6 +83,7 @@ void			error_fd(char *str, int fd);
 int				count_x(char *str, char c);
 void			initialize(t_fdf *m);
 void			init_map(t_fdf *m, int fd);
+void			screen_msg(t_fdf *m);
 //	read.c
 void			read_xy(t_fdf *m, int fd);
 void			get_z(t_fdf *m, int y, char *line);

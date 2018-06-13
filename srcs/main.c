@@ -6,7 +6,7 @@
 /*   By: minakim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 22:40:41 by minakim           #+#    #+#             */
-/*   Updated: 2018/06/12 17:39:14 by minakim          ###   ########.fr       */
+/*   Updated: 2018/06/13 12:59:02 by minakim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ int		main(int ac, char **av)
 	m.mlx_ptr = mlx_init();
 	m.win_ptr = mlx_new_window(m.mlx_ptr, m.window_x, m.window_y, av[1]);
 	screen_msg(&m);
-	plot_map(&m);
 	mlx_hook(m.win_ptr, 2, 0,  handlekey, &m);
+	plot_map(&m);
 	mlx_loop(m.mlx_ptr);
 	return (0);
 }
