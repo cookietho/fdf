@@ -6,7 +6,7 @@
 /*   By: minakim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/29 22:40:41 by minakim           #+#    #+#             */
-/*   Updated: 2018/06/13 12:59:02 by minakim          ###   ########.fr       */
+/*   Updated: 2018/06/13 20:46:22 by minakim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,16 @@ int		main(int ac, char **av)
 			error_handling();
 		if (m.window_y < 900)
 			error_handling();
-		// printf("m.win_min = %d\n", m.win_min);
-		validation(av[1]); //read for validation
+		validation(av[1]);
 	}
 	else
 		error_handling();
-	read_map(av[1], &m); //read to get actual map info
+	read_map(av[1], &m);
 	initialize(&m);
 	m.mlx_ptr = mlx_init();
 	m.win_ptr = mlx_new_window(m.mlx_ptr, m.window_x, m.window_y, av[1]);
 	screen_msg(&m);
-	mlx_hook(m.win_ptr, 2, 0,  handlekey, &m);
+	mlx_hook(m.win_ptr, 2, 0, handlekey, &m);
 	plot_map(&m);
 	mlx_loop(m.mlx_ptr);
 	return (0);

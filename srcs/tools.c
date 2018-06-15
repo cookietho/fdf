@@ -6,7 +6,7 @@
 /*   By: minakim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 09:37:10 by minakim           #+#    #+#             */
-/*   Updated: 2018/06/13 13:09:09 by minakim          ###   ########.fr       */
+/*   Updated: 2018/06/14 17:47:09 by minakim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,21 @@ int		count_x(char *str, char c)
 	int	count;
 	int	i;
 
-	count = 1;
+	count = 0;
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == c && str[i + 1] != c)
+		if (ft_isdigit(str[i]))
+		{
 			count++;
-		i++;
+			i++;
+		}
+		while (ft_isdigit(str[i]))
+			i++;
+		while (str[i] != c && str[i])
+			i++;
+		if (str[i] == c)
+			i++;
 	}
 	return (count);
 }
@@ -45,19 +53,25 @@ void	init_map(t_fdf *m, int fd)
 	{
 		m->map_x = count_x(line, ' ');
 		free(line);
-		//m->line = NULL;
 		m->map_y++;
 	}
 	m->map_max = (m->map_x > m->map_y) ? (m->map_x) : (m->map_y);
 	m->win_min = (m->window_x >= m->window_y) ? m->window_x : m->window_y;
-//	m->p_gap = (m->win_min - 450) / (m->map_max + m->zoom);
 	initialize(m);
 }
 
 void	screen_msg(t_fdf *m)
 {
 	mlx_string_put(m->mlx_ptr, m->win_ptr, 5, 5, 0xffffff, "[ESC] : EXIT");
-	mlx_string_put(m->mlx_ptr, m->win_ptr, 5, 25, 0xffffff, "X ROTATION : 1");
+	mlx_string_put(m->mlx_ptr, m->win_ptr, 5, 27, 0xffffff, "X ROTATION : 1");
 	mlx_string_put(m->mlx_ptr, m->win_ptr, 5, 50, 0xffffff, "Y ROTATION : 2");
 	mlx_string_put(m->mlx_ptr, m->win_ptr, 5, 75, 0xffffff, "Z ROTATION : 3");
+	mlx_string_put(m->mlx_ptr, m->win_ptr, m->window_x - 137,
+		5, 0xffffff, "COLOR : QWER");
+	mlx_string_put(m->mlx_ptr, m->win_ptr, m->window_x - 137,
+		27, 0xffffff, "ZOOM : D & F");
+	mlx_string_put(m->mlx_ptr, m->win_ptr, m->window_x - 227, 50, 0xffffff,
+			"HEIGHT CHANGE : C & V");
+	mlx_string_put(m->mlx_ptr, m->win_ptr, m->window_x - 277, 75, 0xffffff,
+			"Use Arrows to move the map");
 }

@@ -6,13 +6,13 @@
 /*   By: minakim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/09 10:33:07 by minakim           #+#    #+#             */
-/*   Updated: 2018/06/13 13:23:36 by minakim          ###   ########.fr       */
+/*   Updated: 2018/06/13 15:58:08 by minakim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	color_it(int color, t_fdf *m)
+int		color_it(int color, t_fdf *m)
 {
 	int		i;
 	int		j;
@@ -29,4 +29,5 @@ void	color_it(int color, t_fdf *m)
 		}
 		i++;
 	}
+	return (m->color);
 }
