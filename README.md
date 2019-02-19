@@ -4,7 +4,7 @@
 
 ##  What I learned from this Project
 ##### How to place coordinates in space and how to join them with segments
-##### Be able to calculate and project the coordinates from a particular viewpoint. 
+##### Be able to calculate and project the coordinates from a particular viewpoint
 
 ##  How to use
 ##### 1.git clone https://github.com/cookietho/fdf.git
