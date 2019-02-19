@@ -12,3 +12,4 @@
 ##### 3.run make to compile and link the sources
 ##### 4.make will create an excutable file called fdf
 ##### 5.execution: ./fdf <FILE.fdf>   Width > 1200	Height > 900
+![fdf](https://github.com/cookietho/fdf/blob/master/fdf2.gif)
